@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false' vr-mode-ui='enabled: false'>
+      
+      <!-- Marker based approach -->
+      <a-box position="0 0.4 -1" scale="0.2 0.2 0.2" material="color: blue; opacity: 1;"></a-box>
+      <a-sphere position="-1 0.2 -2" radius="0.15" material="color: blue; opacity: 1;"></a-sphere>
+      <a-cylinder position="1 0.2 -2" radius="0.15" height="0.3" material="color: blue; opacity: 1;"></a-cylinder>
+      <a-box position="0 1 -1" scale="0.2 0.2 0.2" material="color: blue; opacity: 1;"></a-box>
+      
+      <!-- Location based approach -->
+      <a-entity gps-entity-place="latitude: 42.0086186; longitude: 20.975582;">
+        <a-entity>
+          <a-box material="color: red; opacity: 1;" scale="0.3 0.3 0.3"></a-box>
+        </a-entity>
+        <a-entity position="0.5 0 0">
+          <a-cone material="color: red; opacity: 1;" radius-bottom="0.1" radius-top="0" height="0.8"></a-cone>
+        </a-entity>
+        <a-entity position="-0.5 0 0">
+          <a-torus material="color: red; opacity: 1;" radius="0.15" radius-tubular="0.05"></a-torus>
+        </a-entity>
+      
+        <a-marker-camera preset='hiro'></a-marker-camera>
+    </a-scene>
+  </body>
+</html>
